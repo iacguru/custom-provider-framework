@@ -17,6 +17,10 @@ type CustomResources struct {
 	DataSourcesMap []ResourcMap
 }
 
+type CustomConfigureContextFunc struct {
+	ConfigureContextFunc schema.ConfigureContextFunc
+}
+
 func (c *CustomSchema) Schema() SchemaMap {
 	var schema = make(SchemaMap)
 	for _, v := range c.Schemas {

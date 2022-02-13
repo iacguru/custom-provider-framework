@@ -10,6 +10,6 @@ func Provider() *schema.Provider {
 		Schema:               CustomSchema.Schema(),
 		ResourcesMap:         CustomResources.Resources(),
 		DataSourcesMap:       CustomResources.DataSources(),
-		ConfigureContextFunc: providerConfigure,
+		ConfigureContextFunc: CustomConfigureContextFunc.ConfigureContextFunc,
 	}
 }
