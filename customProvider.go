@@ -9,7 +9,7 @@ func Provider(cs CustomSchema, cr, cdr CustomResources, ccf CustomConfigureConte
 	return &schema.Provider{
 		Schema:               cs.Schema(),
 		ResourcesMap:         cr.Resources(),
-		DataSourcesMap:       cr.DataSources(),
+		DataSourcesMap:       cdr.DataSources(),
 		ConfigureContextFunc: ccf.ConfigureContextFunc,
 	}
 }
