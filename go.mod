@@ -3,7 +3,6 @@ module github.com/iacguru/custom-provider-framework
 go 1.17
 
 require (
-	github.com/google/go-github v17.0.0+incompatible
 	github.com/hashicorp-demoapp/hashicups-client-go v0.0.0-20220212064447-a6eeb2e9fc33
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
@@ -16,7 +15,6 @@ require (
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/golang/protobuf v1.4.2 // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
-	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320 // indirect
 	github.com/hashicorp/go-hclog v0.16.1 // indirect

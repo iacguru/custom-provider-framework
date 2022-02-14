@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	cpf "github.com/iacguru/custom-provider-framework"
-	"github.com/iacguru/custom-provider-framework/providers/common"
+	"github.com/iacguru/custom-provider-framework/providers/client"
 	"strconv"
 	"time"
 )
@@ -71,7 +71,7 @@ func dataSourceGitWorkflows() *schema.Resource {
 }
 
 func dataSourceGitWorkflowsRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-	c := m.(*common.Client)
+	c := m.(*client.Client)
 	orgOwner := d.Get("owner").(string)
 	repo := d.Get("repo").(string)
 	c.URL = fmt.Sprintf("https://api.github.com/repos/%v/%v/actions/workflows", orgOwner, repo)

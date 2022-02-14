@@ -5,6 +5,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	cpf "github.com/iacguru/custom-provider-framework"
+	"github.com/iacguru/custom-provider-framework/providers/client"
 )
 
 var ConfigContex = cpf.CustomConfigureContextFunc{
@@ -12,7 +13,7 @@ var ConfigContex = cpf.CustomConfigureContextFunc{
 }
 
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	var newClient Client
+	var newClient client.Client
 	username := d.Get("username").(string)
 	password := d.Get("password").(string)
 	gitToken := d.Get("gh_token").(string)
@@ -28,7 +29,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 
 		return c, diags
 	}
-	
+
 	if gitToken != "" {
 		return newClient.GitHubNewClient(gitToken), diags
 	}
