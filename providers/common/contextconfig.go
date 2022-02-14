@@ -15,6 +15,7 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	var newClient Client
 	username := d.Get("username").(string)
 	password := d.Get("password").(string)
+	gitToken := d.Get("gh_token").(string)
 
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
@@ -26,6 +27,10 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 		}
 
 		return c, diags
+	}
+	
+	if gitToken != "" {
+		return newClient.GitHubNewClient(gitToken), diags
 	}
 
 	c, err := newClient.HashiCupsClient(nil, nil, nil)
