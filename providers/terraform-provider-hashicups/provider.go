@@ -6,7 +6,7 @@ import (
 	cpf "github.com/iacguru/custom-provider-framework"
 )
 
-var ProviderSchema = cpf.SchemaMap{
+var HashicupsProviderSchema = cpf.SchemaMap{
 	"username": &schema.Schema{
 		Type:        schema.TypeString,
 		Optional:    true,
