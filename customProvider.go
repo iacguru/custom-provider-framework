@@ -5,10 +5,7 @@ import (
 )
 
 // Provider -
-func Provider() *schema.Provider {
-	var cs CustomSchema
-	var cr CustomResources
-	var ccf CustomConfigureContextFunc
+func Provider(cs CustomSchema, cr, cdr CustomResources, ccf CustomConfigureContextFunc) *schema.Provider {
 	return &schema.Provider{
 		Schema:               cs.Schema(),
 		ResourcesMap:         cr.Resources(),
