@@ -1,4 +1,4 @@
-package terraform_provider_hashicups
+package hashicups
 
 import (
 	"context"

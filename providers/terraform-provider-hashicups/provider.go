@@ -1,4 +1,4 @@
-package terraform_provider_hashicups
+package hashicups
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
