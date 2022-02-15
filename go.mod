@@ -3,9 +3,9 @@ module github.com/iacguru/custom-provider-framework
 go 1.17
 
 require (
-	github.com/hashicorp-demoapp/hashicups-client-go v0.0.0-20220212064447-a6eeb2e9fc33
+	github.com/hashicorp-demoapp/hashicups-client-go v0.0.0-20220214055102-bd8bf734c61c
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
-	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
 )
 
 require (
@@ -42,7 +42,7 @@ require (
 	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
 	golang.org/x/text v0.3.5 // indirect
 	google.golang.org/appengine v1.6.6 // indirect
-	google.golang.org/genproto v0.0.0-20200711021454-869866162049 // indirect
+	google.golang.org/genproto v0.0.0-20200825200019-8632dd797987 // indirect
 	google.golang.org/grpc v1.32.0 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
 )

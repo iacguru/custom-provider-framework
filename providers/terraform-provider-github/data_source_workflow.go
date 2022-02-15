@@ -13,19 +13,21 @@ import (
 )
 
 var workflows = cpf.SchemaMap{
-	"total_count": cpf.TypeInt(),
+	"total_count": cpf.TypeIntComputed(),
 	"workflows": &schema.Schema{
 		Type:     schema.TypeList,
 		Computed: true,
 		Elem: &schema.Resource{
 			Schema: cpf.SchemaMap{
-				"id":         cpf.TypeInt(),
-				"name":       cpf.TypeString(),
-				"path":       cpf.TypeString(),
-				"state":      cpf.TypeString(),
-				"url":        cpf.TypeString(),
-				"created_at": cpf.TypeString(),
-				"updated_at": cpf.TypeString(),
+				"id":         cpf.TypeIntComputed(),
+				"name":       cpf.TypeStringComputed(),
+				"path":       cpf.TypeStringComputed(),
+				"state":      cpf.TypeStringComputed(),
+				"url":        cpf.TypeStringComputed(),
+				"created_at": cpf.TypeStringComputed(),
+				"updated_at": cpf.TypeStringComputed(),
+				"owner":      cpf.TypeStringArgument(),
+				"repo":       cpf.TypeStringArgument(),
 			},
 		},
 	},

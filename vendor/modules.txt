@@ -26,7 +26,7 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/hashicorp-demoapp/hashicups-client-go v0.0.0-20220212064447-a6eeb2e9fc33
+# github.com/hashicorp-demoapp/hashicups-client-go v0.0.0-20220214055102-bd8bf734c61c
 ## explicit; go 1.13
 github.com/hashicorp-demoapp/hashicups-client-go
 # github.com/hashicorp/errwrap v1.0.0
@@ -149,7 +149,7 @@ golang.org/x/net/http2/hpack
 golang.org/x/net/idna
 golang.org/x/net/internal/timeseries
 golang.org/x/net/trace
-# golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d
+# golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
 ## explicit; go 1.11
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
@@ -178,7 +178,7 @@ google.golang.org/appengine/internal/modules
 google.golang.org/appengine/internal/remote_api
 google.golang.org/appengine/internal/urlfetch
 google.golang.org/appengine/urlfetch
-# google.golang.org/genproto v0.0.0-20200711021454-869866162049
+# google.golang.org/genproto v0.0.0-20200825200019-8632dd797987
 ## explicit; go 1.11
 google.golang.org/genproto/googleapis/rpc/status
 # google.golang.org/grpc v1.32.0

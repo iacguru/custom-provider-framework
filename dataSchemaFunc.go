@@ -2,16 +2,23 @@ package cpf
 
 import "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-func TypeString() *schema.Schema {
+func TypeStringComputed() *schema.Schema {
 	return &schema.Schema{
 		Type:     schema.TypeString,
 		Computed: true,
 	}
 }
 
-func TypeInt() *schema.Schema {
+func TypeIntComputed() *schema.Schema {
 	return &schema.Schema{
 		Type:     schema.TypeInt,
 		Computed: true,
+	}
+}
+
+func TypeStringArgument() *schema.Schema {
+	return &schema.Schema{
+		Type:     schema.TypeString,
+		Required: true,
 	}
 }
