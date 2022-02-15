@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    hashicups = {
+    github = {
       version = "0.2"
-      source  = "hashicorp.com/edu/hashicups"
+      source  = "iacguru.com/dev/customproviders"
     }
   }
 }

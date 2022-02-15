@@ -3,12 +3,13 @@ package github
 import (
 	"context"
 	"fmt"
+	"strconv"
+	"time"
+
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	cpf "github.com/iacguru/custom-provider-framework"
 	"github.com/iacguru/custom-provider-framework/providers/client"
-	"strconv"
-	"time"
 )
 
 var workflows = cpf.SchemaMap{
@@ -31,7 +32,7 @@ var workflows = cpf.SchemaMap{
 }
 
 var WorkflowDataSource = cpf.ResourcMap{
-	"git_workflows": dataSourceGitWorkflows(),
+	"cpf_git_workflows": dataSourceGitWorkflows(),
 }
 
 var sch = cpf.CustomSchema{

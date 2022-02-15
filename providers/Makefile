@@ -1,7 +1,7 @@
 TEST?=$$(go list ./... | grep -v 'vendor')
 HOSTNAME=iacguru.com
 NAMESPACE=dev
-NAME=customproviders
+NAME=cpf
 BINARY=terraform-provider-${NAME}
 VERSION=0.2
 OS_ARCH=darwin_amd64
