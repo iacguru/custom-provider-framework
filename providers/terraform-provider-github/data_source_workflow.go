@@ -2,7 +2,6 @@ package github
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -13,43 +12,19 @@ import (
 )
 
 var workflows = cpf.SchemaMap{
-	"total_count": &schema.Schema{
-		Type:     schema.TypeInt,
-		Computed: true,
-	},
+	"total_count": cpf.TypeInt(),
 	"workflows": &schema.Schema{
 		Type:     schema.TypeList,
 		Computed: true,
 		Elem: &schema.Resource{
 			Schema: cpf.SchemaMap{
-				"id": &schema.Schema{
-					Type:     schema.TypeInt,
-					Computed: true,
-				},
-				"name": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
-				"path": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
-				"state": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
-				"url": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
-				"created_at": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
-				"updated_at": &schema.Schema{
-					Type:     schema.TypeString,
-					Computed: true,
-				},
+				"id":         cpf.TypeInt(),
+				"name":       cpf.TypeString(),
+				"path":       cpf.TypeString(),
+				"state":      cpf.TypeString(),
+				"url":        cpf.TypeString(),
+				"created_at": cpf.TypeString(),
+				"updated_at": cpf.TypeString(),
 			},
 		},
 	},
@@ -77,19 +52,14 @@ func dataSourceGitWorkflowsRead(ctx context.Context, d *schema.ResourceData, m i
 	c.URL = fmt.Sprintf("https://api.github.com/repos/%v/%v/actions/workflows", orgOwner, repo)
 	c.Method = "GET"
 	var diags diag.Diagnostics
-	c.NewRequest()
-	res, err := c.DoRequest()
+	err := c.GetGitWorkflows()
 	if err != nil {
 		return diag.FromErr(err)
 	}
-	defer res.Body.Close()
-	workflows := make([]map[string]interface{}, 0)
-	err = json.NewDecoder(res.Body).Decode(&workflows)
-	if err != nil {
+	if err := d.Set("total_count", c.Workflows.TotalCount); err != nil {
 		return diag.FromErr(err)
 	}
-
-	if err := d.Set("workflows", workflows); err != nil {
+	if err := d.Set("workflows", c.Workflows); err != nil {
 		return diag.FromErr(err)
 	}
 	// always run

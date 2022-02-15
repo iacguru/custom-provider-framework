@@ -1,9 +1,7 @@
 package client
 
 import (
-	"context"
-	"github.com/hashicorp-demoapp/hashicups-client-go"
-	"golang.org/x/oauth2"
+	action "github.com/iacguru/custom-provider-framework/providers/data/github"
 	"io"
 	"net/http"
 )
@@ -15,23 +13,7 @@ type Client struct {
 	Body       io.Reader
 	Headers    *map[string]string
 	Req        *http.Request
-}
-
-func (c *Client) GitHubNewClient(pat string) *http.Client {
-	ctx := context.Background()
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: pat},
-	)
-	c.HttpClient = oauth2.NewClient(ctx, ts)
-	return c.HttpClient
-}
-
-func (c *Client) HashiCupsClient(host, username, password *string) (*hashicups.Client, error) {
-	newClient, err := hashicups.NewClient(host, username, password)
-	if err != nil {
-		return nil, err
-	}
-	return newClient, nil
+	Workflows  *action.Workflow
 }
 
 func (c *Client) NewRequest() (*http.Request, error) {
