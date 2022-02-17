@@ -13,7 +13,7 @@ provider "cpf" {
 
 data "cpf_git_workflows" "this" {
   owner = "summitdevops"
-  repo = "github_workflows"
+  repo = "github_workflow"
 }
 
 # Returns all coffees

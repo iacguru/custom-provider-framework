@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net/http"
 
 	"golang.org/x/oauth2"
 )
@@ -25,15 +26,22 @@ func (c *Client) GetGitWorkflows() error {
 	if err != nil {
 		return err
 	}
-	body, _ := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return err
-	}
-	err = json.Unmarshal(body, &c.Workflows)
+
 	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
-		fmt.Println("Error during do unmarshel:")
 		return err
 	}
+	if res.StatusCode == http.StatusOK || res.StatusCode == http.StatusNoContent {
+		err = json.Unmarshal(body, &c.Workflows)
+		if err != nil {
+			fmt.Println("Error during do unmarshel:")
+			return err
+		}
+	} else {
+		return fmt.Errorf("status: %d, body: %s", res.StatusCode, body)
+	}
+
 	return nil
 }

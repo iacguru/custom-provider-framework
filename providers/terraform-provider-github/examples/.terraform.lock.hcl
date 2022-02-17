@@ -5,6 +5,6 @@ provider "iacguru.com/dev/cpf" {
   version     = "0.2.0"
   constraints = "0.2.0"
   hashes = [
-    "h1:RdBRGAGbrx3QB7MQkq5k8qR+tYR3PDsfbwnIfOHkThg=",
+    "h1:s0UkZ+c76PCS0FnmPqbZKuUYT+nBUeATH2Mj5/Vxytk=",
   ]
 }
