@@ -1,14 +1,14 @@
 terraform {
   required_providers {
-    github = {
+    cpf = {
       version = "0.2"
-      source  = "iacguru.com/dev/customproviders"
+      source  = "iacguru.com/dev/cpf"
+
     }
   }
 }
 
-
-provider "hashicups" {
+provider "cpf" {
   username = "education"
   password = "test123"
 }

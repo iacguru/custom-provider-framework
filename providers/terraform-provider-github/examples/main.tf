@@ -19,5 +19,5 @@ data "cpf_git_workflows" "this" {
 
 # Returns all coffees
 output "workflows" {
-  value = data.cpf_git_workflows.this.workflows
+  value = data.cpf_git_workflows.this
 }

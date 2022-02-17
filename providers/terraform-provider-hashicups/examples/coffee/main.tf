@@ -1,8 +1,9 @@
 terraform {
   required_providers {
-    github = {
+    cpf = {
       version = "0.2"
-      source  = "iacguru.com/dev/customproviders"
+      source  = "iacguru.com/dev/cpf"
+
     }
   }
 }
@@ -12,17 +13,17 @@ variable "coffee_name" {
   default = "Vagrante espresso"
 }
 
-data "hashicups_coffees" "all" {}
+data "cpf_hashicups_coffees" "all" {}
 
 # Returns all coffees
 output "all_coffees" {
-  value = data.hashicups_coffees.all.coffees
+  value = data.cpf_hashicups_coffees.all.coffees
 }
 
 # Only returns packer spiced latte
 output "coffee" {
   value = {
-    for coffee in data.hashicups_coffees.all.coffees :
+    for coffee in data.cpf_hashicups_coffees.all.coffees :
     coffee.id => coffee
     if coffee.name == var.coffee_name
   }

@@ -61,7 +61,7 @@ var coffeeS = cpf.SchemaMap{
 }
 
 var CoffeeDataSource = cpf.ResourcMap{
-	"hashicups_coffees": dataSourceCoffees(),
+	"cpf_hashicups_coffees": dataSourceCoffees(),
 }
 
 var sch = cpf.CustomSchema{

@@ -4,18 +4,19 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/oauth2"
 	"io/ioutil"
-	"net/http"
+
+	"golang.org/x/oauth2"
 )
 
-func (c *Client) GitHubNewClient(pat string) *http.Client {
+func GitHubNewClient(pat string) *Client {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: pat},
 	)
-	c.HttpClient = oauth2.NewClient(ctx, ts)
-	return c.HttpClient
+	return &Client{
+		HttpClient: oauth2.NewClient(ctx, ts),
+	}
 }
 
 func (c *Client) GetGitWorkflows() error {

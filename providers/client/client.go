@@ -1,9 +1,10 @@
 package client
 
 import (
-	action "github.com/iacguru/custom-provider-framework/providers/data/github"
 	"io"
 	"net/http"
+
+	action "github.com/iacguru/custom-provider-framework/providers/data/github"
 )
 
 type Client struct {
@@ -13,7 +14,7 @@ type Client struct {
 	Body       io.Reader
 	Headers    *map[string]string
 	Req        *http.Request
-	Workflows  *action.Workflow
+	Workflows  *action.Workflows
 }
 
 func (c *Client) NewRequest() (*http.Request, error) {

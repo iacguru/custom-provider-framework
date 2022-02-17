@@ -26,11 +26,11 @@ var workflows = cpf.SchemaMap{
 				"url":        cpf.TypeStringComputed(),
 				"created_at": cpf.TypeStringComputed(),
 				"updated_at": cpf.TypeStringComputed(),
-				"owner":      cpf.TypeStringArgument(),
-				"repo":       cpf.TypeStringArgument(),
 			},
 		},
 	},
+	"owner": cpf.TypeStringArgument(),
+	"repo":  cpf.TypeStringArgument(),
 }
 
 var WorkflowDataSource = cpf.ResourcMap{
@@ -62,7 +62,7 @@ func dataSourceGitWorkflowsRead(ctx context.Context, d *schema.ResourceData, m i
 	if err := d.Set("total_count", c.Workflows.TotalCount); err != nil {
 		return diag.FromErr(err)
 	}
-	if err := d.Set("workflows", c.Workflows); err != nil {
+	if err := d.Set("workflows", c.Workflows.Workflows); err != nil {
 		return diag.FromErr(err)
 	}
 	// always run
