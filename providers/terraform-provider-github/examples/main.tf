@@ -16,7 +16,7 @@ data "cpf_git_workflows" "this" {
   repo = "github_workflow"
 }
 
-# Returns all coffees
+# Returns all workflows
 output "workflows" {
   value = data.cpf_git_workflows.this
 }
