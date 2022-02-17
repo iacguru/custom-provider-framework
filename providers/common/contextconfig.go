@@ -14,30 +14,30 @@ var ConfigContex = cpf.CustomConfigureContextFunc{
 }
 
 func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-	username := d.Get("username").(string)
-	password := d.Get("password").(string)
+	//username := d.Get("username").(string)
+	//password := d.Get("password").(string)
 	gitToken := d.Get("github_token").(string)
 
 	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
+	/*
+		if (username != "") && (password != "") {
+			c, err := client.HashiCupsClient(nil, &username, &password)
+			if err != nil {
+				return nil, diag.FromErr(err)
+			}
 
-	if (username != "") && (password != "") {
-		c, err := client.HashiCupsClient(nil, &username, &password)
+			return c, diags
+		}
+	*/
+	return client.GitHubNewClient(gitToken), diags
+
+	/*
+		c, err := client.HashiCupsClient(nil, nil, nil)
 		if err != nil {
 			return nil, diag.FromErr(err)
 		}
 
 		return c, diags
-	}
-
-	if gitToken != "" {
-		return client.GitHubNewClient(gitToken), diags
-	}
-
-	c, err := client.HashiCupsClient(nil, nil, nil)
-	if err != nil {
-		return nil, diag.FromErr(err)
-	}
-
-	return c, diags
+	*/
 }
